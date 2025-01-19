@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", serif;
+    margin-block-start: 30px;
+}
+
+button {
+    border: none;
+    padding: 16px 60px;
+    width: 200px;
+    text-align: center;
+    font-size: 1.1em;
+    margin-inline-end: 2rem;
+    font-family: "Josefin Sans", serif;
+
+}
+
+button:last-child {
+    margin-inline-end: 0;
+}
+
+button:active {
+    background-color:cadetblue;
+}
+
+
+.scores {
+    display: block;
+}
