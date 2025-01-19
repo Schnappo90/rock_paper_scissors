@@ -33,11 +33,9 @@ function getHumanChoice() {
 // Single round function
 
 function playRound(humanSelection,computerChoice){
-    // player selection evaluated against computer. If inputs are the same, it's a tie.
+
     if(humanSelection === computerChoice) {
-        console.log(`It's a tie! You both chose ${humanSelection}!`);
-        console.log(`Player Score: ${humanScore}`);
-        console.log(`Computer Score: ${computerScore}`);
+        selections.innerText = `It's a tie! You both chose ${humanSelection}!`;
     
     } else if(
         (humanSelection === 'rock' && computerChoice === 'scissors') ||
@@ -46,18 +44,15 @@ function playRound(humanSelection,computerChoice){
     
     ) { 
         humanScore++;
-        console.log(`You win! ${humanSelection} beats ${computerChoice}`)
-        console.log(`Player Score: ${humanScore}`)
-        console.log(`Computer Score: ${computerScore}`)
+        selections.innerText = `You win! ${humanSelection} beats ${computerChoice}!`;
     
     } else {
         computerScore++;
-        console.log(`Sorry, Computer wins! ${computerChoice} beats ${humanSelection}.`)
-        console.log(`Player Score: ${humanScore}`)
-        console.log(`Computer Score: ${computerScore}`)
+        selections.innerText = `Sorry, Computer wins! ${computerChoice} beats ${humanSelection}.`;
     }
 
-    scores.innerText = `Your Score: ${humanScore} vs Computer Score: ${computerScore}`;
+    scores.innerText = `Your Score: ${humanScore} vs ${computerScore} :Computer Score`;
+
 }
 
 function finalScores() {
@@ -103,15 +98,17 @@ const button_scissors = document.createElement("button");
 const button_start = document.createElement("button");
 const div = document.createElement("div");
 const results_div = document.createElement("div");
+const selections = document.createElement("p");
 const scores = document.createElement("p");
 
 
 div.classList.add("btn_container");
 const btn_container = document.querySelector(".btn_container");
-button_start.textContent = 'Start Game';
+button_start.textContent = 'START GAME';
 button_rock.textContent = 'Rock';
 button_paper.textContent = 'Paper';
 button_scissors.textContent = 'Scissors';
+
 
 document.body.appendChild(div);
 document.body.appendChild(results_div);
@@ -122,6 +119,7 @@ button_start.addEventListener('click',() => {
     div.appendChild(button_rock);
     div.appendChild(button_paper);
     div.appendChild(button_scissors);
+    results_div.appendChild(selections);
     results_div.appendChild(scores);
     button_start.remove();
 
